@@ -1,0 +1,48 @@
+<!doctype html>
+<html ng-app="taskApp">
+<head>
+	<title>Task Management Application</title>
+	<link rel="stylesheet" href="style.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+	<script src="app.js"></script>
+</head>
+<body>
+	<div ng-controller="TaskController">
+	<center>	<h1>Task Management Application</h1>
+		<form ng-submit="addTask()" id = "d1">
+			<label>Task Name:</label>
+			<input type="text" ng-model="taskName" required>
+			<label>Description:</label>
+			<input type="text" ng-model="taskDescription" required>
+			<label>Status:</label>
+			<input type="text" ng-model="taskStatus" required>
+			<button type="submit">Add Task</button>
+		</form>  <br> <br> <br> <br>
+		</center>
+		<center>
+
+		<table border="2" id = "d1">
+			<thead>
+				<tr>
+					<th>Task Name</th>
+					<th>Description</th>
+					<th>Status</th>
+					<th>Edit</th>
+					<th>Delete</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="task in tasks">
+					<td>{{ task.name }}</td>
+					<td>{{ task.description }}</td>
+					<td>{{ task.status }}</td>
+					<td><button ng-click="editTask(task)">Edit</button></td>
+					<td><button ng-click="deleteTask(task)">Delete</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</center>
+	</div>
+</body>
+</html>
